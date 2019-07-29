@@ -1,0 +1,42 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: agent-portal-gateway
+  labels:
+    app: agent-portal-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: agent-portal-gateway
+  template:
+    metadata:
+      labels:
+        app: agent-portal-gateway
+    spec:
+      containers:
+      - name: agent-portal-gateway
+        image: ascmn/agent-portal-gateway:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: SERVICE_PORT
+          value: "80"
+        - name: ZIPKIN_HOST
+          value: zipkin
+        - name: ZIPKIN_PORT
+          value: "9411"
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 3
+          timeoutSeconds: 1
+          periodSeconds: 1
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 30
+          timeoutSeconds: 1
+          periodSeconds: 5

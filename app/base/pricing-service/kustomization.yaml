@@ -1,0 +1,3 @@
+resources:
+- pricing-service-deployment.yml
+- pricing-service.yml

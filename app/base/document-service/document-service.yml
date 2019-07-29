@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: documents-service
+  labels:
+    app: documents-service
+spec:
+  type: ClusterIP
+  selector:
+    app: documents-service
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80

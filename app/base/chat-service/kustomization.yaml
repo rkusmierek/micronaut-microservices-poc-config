@@ -1,0 +1,3 @@
+resources:
+- chat-service-deployment.yml
+- chat-service.yml

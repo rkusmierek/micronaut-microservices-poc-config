@@ -1,0 +1,4 @@
+resources:
+- agent-portal-gateway-deployment.yml
+- agent-portal-gateway-service.yml
+

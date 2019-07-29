@@ -1,0 +1,4 @@
+resources:
+- web-vue-deployment.yml
+- web-vue-ingress.yml
+- web-vue-service.yml

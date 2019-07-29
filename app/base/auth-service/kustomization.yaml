@@ -1,0 +1,3 @@
+resources:
+- auth-service-deployment.yml
+- auth-service.yml

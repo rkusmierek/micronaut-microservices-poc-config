@@ -1,0 +1,3 @@
+resources:
+- policy-search-service-deployment.yml
+- policy-search-service.yml

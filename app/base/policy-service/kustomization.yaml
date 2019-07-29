@@ -1,0 +1,3 @@
+resources:
+- policy-service-deployment.yml
+- policy-service.yml

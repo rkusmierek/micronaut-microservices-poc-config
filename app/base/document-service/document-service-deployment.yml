@@ -1,0 +1,50 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: documents-service
+  labels:
+    app: documents-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: documents-service
+  template:
+    metadata:
+      labels:
+        app: documents-service
+    spec:
+      containers:
+      - name: documents-service
+        image: ascmn/documents-service:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: SERVICE_PORT
+          value: "80"
+        - name: ZIPKIN_HOST
+          value: "zipkin"
+        - name: ZIPKIN_PORT
+          value: "9411"
+        - name: KAFKA_HOST
+          value: "kafka-server"
+        - name: KAFKA_PORT
+          value: "9092"
+        - name: JSREPORT_HOST
+          value: "jsreport"
+        - name: JSREPORT_PORT
+          value: "80"
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 3
+          timeoutSeconds: 1
+          periodSeconds: 1
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 30
+          timeoutSeconds: 1
+          periodSeconds: 5

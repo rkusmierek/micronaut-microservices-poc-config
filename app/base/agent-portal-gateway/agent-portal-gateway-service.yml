@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: agent-portal-gateway
+  labels:
+    app: agent-portal-gateway
+spec:
+  type: ClusterIP
+  selector:
+    app: agent-portal-gateway
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80

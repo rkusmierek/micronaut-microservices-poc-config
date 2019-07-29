@@ -1,0 +1,11 @@
+bases:
+- agent-portal-gateway
+- auth-service
+- chat-service
+- document-service
+- payment-service
+- policy-search-service
+- policy-service
+- pricing-service
+- product-service
+- web-vue

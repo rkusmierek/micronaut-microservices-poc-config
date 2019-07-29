@@ -1,0 +1,3 @@
+resources:
+- document-service-deployment.yml
+- document-service.yml
