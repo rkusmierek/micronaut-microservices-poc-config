@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: web-vue
-        image: ascmn/web-vue:173
+        image: ascmn/web-vue:156
         env:
         - name: GATEWAY_URL
           value: "http://agent-portal-gateway"

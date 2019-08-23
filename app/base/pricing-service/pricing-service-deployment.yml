@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: pricing-service
-        image: ascmn/pricing-service:173
+        image: ascmn/pricing-service:156
         ports:
         - containerPort: 80
         env:
