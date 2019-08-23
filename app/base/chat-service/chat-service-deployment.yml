@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: chat-service
-        image: ascmn/chat-service:latest
+        image: ascmn/chat-service:173
         ports:
         - containerPort: 80
         env:

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: auth-service
-        image: ascmn/auth-service:latest
+        image: ascmn/auth-service:173
         ports:
         - containerPort: 80
         env:

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: documents-service
-        image: ascmn/documents-service:latest
+        image: ascmn/documents-service:173
         ports:
         - containerPort: 80
         env:

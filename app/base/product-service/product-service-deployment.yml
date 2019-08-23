@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: product-service
-        image: ascmn/product-service:latest
+        image: ascmn/product-service:173
         ports:
         - containerPort: 80
         env:

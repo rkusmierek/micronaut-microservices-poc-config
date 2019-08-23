@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: policy-service
-        image: ascmn/policy-service:latest
+        image: ascmn/policy-service:173
         ports:
         - containerPort: 80
         env:
