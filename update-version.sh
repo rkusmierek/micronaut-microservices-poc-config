@@ -8,4 +8,4 @@ USAGE="$(basename $0) tag"
 
 TAG=$1
 
-sed -ri "s|(image: [^:]*):.*|\1:${TAG}|" ./app/base/*/*-service-deployment.yml
+sed -ri "s|(image: [^:]*):.*|\1:${TAG}|" ./app/base/*/*-deployment.yml
