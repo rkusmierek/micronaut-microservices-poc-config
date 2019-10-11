@@ -2,6 +2,7 @@ bases:
 - agent-portal-gateway
 - auth-service
 - chat-service
+- dashboard-service
 - document-service
 - payment-service
 - policy-search-service

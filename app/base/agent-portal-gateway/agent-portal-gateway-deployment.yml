@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: agent-portal-gateway
-        image: ascmn/agent-portal-gateway:156
+        image: ascmn/agent-portal-gateway:189
         ports:
         - containerPort: 80
         env:

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: policy-search-service
-        image: ascmn/policy-search-service:156
+        image: ascmn/policy-search-service:189
         ports:
         - containerPort: 80
         env:

@@ -1,22 +1,22 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: auth-service
+  name: dashboard-service
   labels:
-    app: auth-service
+    app: dashboard-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: auth-service
+      app: dashboard-service
   template:
     metadata:
       labels:
-        app: auth-service
+        app: dashboard-service
     spec:
       containers:
-      - name: auth-service
-        image: ascmn/auth-service:189
+      - name: dashboard-service
+        image: ascmn/dashboard-service:189
         ports:
         - containerPort: 80
         env:
@@ -26,17 +26,25 @@ spec:
           value: zipkin
         - name: ZIPKIN_PORT
           value: "9411"
+        - name: KAFKA_HOST
+          value: "kafka-server"
+        - name: KAFKA_PORT
+          value: "9092"
+        - name: ELASTIC_HOST
+          value: "elasticsearch"
+        - name: ELASTIC_PORT
+          value: "9200"
         readinessProbe:
           httpGet:
             path: /health
             port: 80
-          initialDelaySeconds: 3
+          initialDelaySeconds: 10
           timeoutSeconds: 1
-          periodSeconds: 1
+          periodSeconds: 10
         livenessProbe:
           httpGet:
             path: /health
             port: 80
-          initialDelaySeconds: 30
+          initialDelaySeconds: 600
           timeoutSeconds: 1
-          periodSeconds: 5
+          periodSeconds: 10

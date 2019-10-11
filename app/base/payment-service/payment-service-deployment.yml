@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: payment-service
-        image: ascmn/payment-service:156
+        image: ascmn/payment-service:189
         ports:
         - containerPort: 80
         env:
