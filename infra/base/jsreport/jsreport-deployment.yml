@@ -1,0 +1,47 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: jsreport
+  labels:
+    app: jsreport
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jsreport
+  template:
+    metadata:
+      labels:
+        app: jsreport
+    spec:
+      containers:
+      - name: jsreport
+        image: jsreport/jsreport
+        ports:
+        - containerPort: 5488
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 5488
+          initialDelaySeconds: 1
+          timeoutSeconds: 1
+          periodSeconds: 1
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 5488
+          initialDelaySeconds: 60
+          timeoutSeconds: 1
+          periodSeconds: 5
+        volumeMounts:
+        - name: policy-template-volume
+          mountPath: /app/data/POLICY
+        - name: logo-volume
+          mountPath: /app/data/logo.svg
+      volumes:
+      - name: policy-template-volume
+        configMap:
+          name: jsreport-policy-template
+      - name: logo-volume
+        configMap:
+          name: jsreport-logo

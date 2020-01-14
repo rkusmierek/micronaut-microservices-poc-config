@@ -1,0 +1,7 @@
+bases:
+- elasticsearch
+- jsreport
+- kafka
+- mongo
+- zipkin
+- zookeeper

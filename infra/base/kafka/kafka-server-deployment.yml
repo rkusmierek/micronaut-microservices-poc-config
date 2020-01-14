@@ -1,0 +1,40 @@
+kind: StatefulSet
+apiVersion: apps/v1
+metadata:
+  name: kafka-server
+  labels:
+    app: kafka-server
+spec:
+  serviceName: kafka-server
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafka-server
+  template:
+    metadata:
+      labels:
+        app: kafka-server
+    spec:
+      hostname: kafka-server
+      containers:
+      - name: kafka-server
+        image: bitnami/kafka:2.0.0
+        env:
+        - name: KAFKA_ZOOKEEPER_CONNECT
+          value: "zookeeper:2181"
+        - name: ALLOW_PLAINTEXT_LISTENER
+          value: "yes"
+        ports:
+        - containerPort: 9092
+        readinessProbe:
+          tcpSocket:
+            port: 9092
+          initialDelaySeconds: 3
+          timeoutSeconds: 1
+          periodSeconds: 1
+        livenessProbe:
+          tcpSocket:
+            port: 9092
+          initialDelaySeconds: 60
+          timeoutSeconds: 1
+          periodSeconds: 5

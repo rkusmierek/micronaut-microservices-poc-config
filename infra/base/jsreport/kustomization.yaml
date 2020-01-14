@@ -1,0 +1,6 @@
+resources:
+- jsreport-cm-asset-logo.yml
+- jsreport-cm-template-policy.yml
+- jsreport-deployment.yml
+- jsreport-ingress.yml
+- jsreport-service.yml

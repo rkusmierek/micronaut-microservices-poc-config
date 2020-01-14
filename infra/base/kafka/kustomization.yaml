@@ -1,0 +1,7 @@
+resources:
+- kafka-config.yml
+- kafka-manager-deployment.yml
+- kafka-manager-ingress.yml
+- kafka-manager-service.yml
+- kafka-server-deployment.yml
+- kafka-server-service.yml

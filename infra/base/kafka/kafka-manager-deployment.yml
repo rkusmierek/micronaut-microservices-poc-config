@@ -1,0 +1,39 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: kafka-manager
+  labels:
+    app: kafka-manager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafka-manager
+  template:
+    metadata:
+      labels:
+        app: kafka-manager
+    spec:
+      hostname: kafka-manager
+      containers:
+      - name: kafka-manager
+        image: deric/kafka-manager:1.3.3.18
+        env:
+        - name: ZK_HOSTS
+          value: "zookeeper:2181"
+        ports:
+        - containerPort: 9000
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 9000
+          initialDelaySeconds: 3
+          timeoutSeconds: 1
+          periodSeconds: 1
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 9000
+          initialDelaySeconds: 30
+          timeoutSeconds: 1
+          periodSeconds: 5

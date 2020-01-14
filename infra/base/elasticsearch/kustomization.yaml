@@ -1,0 +1,3 @@
+resources:
+- elasticsearch-deployment.yml
+- elasticsearch-service.yml

@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jsreport-policy-template
+data:
+  config.json: |-
+    {
+      "shortid": "rk1VSQogI",
+      "name": "POLICY",
+      "recipe": "chrome-pdf",
+      "engine": "handlebars",
+      "chrome": {
+        "printBackground": true
+      },
+      "modificationDate": {
+        "$$date": 1579023950342
+      },
+      "_id": "6WVS6gqAIqij9W2t",
+      "$entitySet": "templates",
+      "resources": {
+        "items": []
+      }
+    }
+  content.handlebars: |-
+    <div width="100%">
+      <img src="{#asset logo.svg @encoding=dataURI}" width="30%" align="right"/>
+    </div>
+    <div>
+      <p>TEST</p>
+    </div>

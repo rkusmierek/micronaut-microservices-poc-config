@@ -1,0 +1,4 @@
+resources:
+- zipkin-deployment.yml
+- zipkin-ingress.yml
+- zipkin-service.yml
